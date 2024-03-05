@@ -51,8 +51,8 @@ public class RecipeController {
 		model.addAttribute("totalpage", totalpage);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
-		model.addAttribute("list", list);
 		model.addAttribute("count", count);
+		model.addAttribute("list", list);
 		
 		model.addAttribute("main_html", "recipe/main");
 		return "main";

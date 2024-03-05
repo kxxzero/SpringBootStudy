@@ -30,15 +30,15 @@ DEPTNO int
 public class Emp {
 	@Id
 	private int empno;
-	private String ename, job, hiredate;
-	private int mgr, sal, comm;
+	private String ename, job, hiredate, comm;
+	private int mgr, sal;
 	@Column(insertable=false, updatable=false) // 참조 변수
 	private int deptno;	
 	
 	@ManyToOne(fetch=FetchType.EAGER) // EMP 여러 개에 DEPT 한 개
 	// LAZY : 지연 / EAGER : 즉시 로딩
 	
-	@JoinColumn(name="deptno", referencedColumnName = "deptno")
+	@JoinColumn(name="deptno", referencedColumnName="deptno")
 	private Dept dept;
 	
 }
