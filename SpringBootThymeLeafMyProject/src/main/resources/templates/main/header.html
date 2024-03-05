@@ -6,147 +6,92 @@
 </head>
 <body>
   <!-- [S]glamping-N1 -->
-  <header class="glamping-N1" data-bid="IiLTC8Lwme">
+  <header class="glamping-N1" data-bid="IiLTC8Lwme" id="header">
     <div class="header-container container-lg">
       <div class="header-left">
         <h1 class="header-title">
-          <a href="javascript:void(0)">
-            <img src="../images/img_logo_white.png" alt="로고">
-          </a>
+          <a href="/">TripTravel</a>
         </h1>
       </div>
       
       <div class="header-center">
         <ul class="header-member">
           <li>
-            <a href="javascript:void(0)">로그인</a>
+            <a href="">로그인</a>
+            <ul class="inline" th:if="${session.id==null}">
+				<li>ID:<input type="text" id="id" ref="id" v-model="id" size="15"> </li>
+				<li>PWD:<input type="password" id="password" ref="pwd" v-model="pwd" size="15"> </li>
+				<li><input type="button" value="로그인" @click="login()">
+			</ul>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+          	<a href="">로그아웃</a>
+          	<ul class="inline" th:nuless="${session.id==null}">
+				<li><span th:text="${session.name}"></span>님 로그인 되었습니다.</li>
+				<li><input type="button" value="로그아웃" @click="logout()">
+			</ul>
           </li>
+          <!-- <li>
+            <a href="javascript:void(0)">회원가입</a>
+          </li> -->
         </ul>
         <ul class="header-gnblist">
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="javascript:void(0)">
-              <span>템하소개</span>
+            <a class="header-gnblink" href="#">
+              <span>프로젝트 소개</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
+                <a class="header-sublink" href="#">
                   <span>인사말</span>
                 </a>
               </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>산책로소개</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>오시는길</span>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="javascript:void(0)">
-              <span>글램핑안내</span>
+            <a class="header-gnblink" href="/tour/find">
+              <span>여행</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>글램핑안내</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>템하 글램핑</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>파인 글램핑</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>뷰모노 글램핑</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>노르웨이 글램핑</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>이글루 글램핑</span>
+                <a class="header-sublink" href="/tour/find">
+                  <span>여행 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="javascript:void(0)">
-              <span>템하이벤트</span>
+            <a class="header-gnblink" href="/festival/list">
+              <span>축제</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>편의시설</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>모닥불/캠프파이어</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>액티비티</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>템하 이벤트</span>
+                <a class="header-sublink" href="/festival/list">
+                  <span>축제 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="javascript:void(0)">
-              <span>예약하기</span>
+            <a class="header-gnblink" href="/activity/list">
+              <span>체험</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>예약하기</span>
+                <a class="header-sublink" href="/activity/list">
+                  <span>체험 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="javascript:void(0)">
+            <a class="header-gnblink" href="#">
               <span>커뮤니티</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
+                <a class="header-sublink" href="#">
                   <span>공지사항</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>FAQ</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>미디어</span>
-                </a>
-              </li>
-              <li class="header-subitem">
-                <a class="header-sublink" href="javascript:void(0)">
-                  <span>온라인 문의</span>
                 </a>
               </li>
             </ul>
@@ -182,135 +127,82 @@
           </h4>
           <ul class="fullmenu-member">
             <li>
-              <a href="javascript:void(0)">로그인</a>
-            </li>
-            <li>
+            	<a href="">로그인</a>
+	            <ul class="inline" th:if="${session.id==null}">
+					<li>ID:<input type="text" id="id" ref="id" v-model="id" size="15"> </li>
+					<li>PWD:<input type="password" id="password" ref="pwd" v-model="pwd" size="15"> </li>
+					<li><input type="button" value="로그인" @click="login()">
+				</ul>
+          	</li>
+          	<li>
+          		<a href="">로그아웃</a>
+          		<ul class="inline" th:nuless="${session.id==null}">
+					<li><span th:text="${session.name}"></span>님 로그인 되었습니다.</li>
+					<li><input type="button" value="로그아웃" @click="logout()">
+				</ul>
+          	</li>
+            <!-- <li>
               <a href="javascript:void(0)">회원가입</a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <ul class="fullmenu-gnblist">
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="javascript:void(0)">
-              <span>템하소개</span>
+            <a class="fullmenu-gnblink" href="#">
+              <span>프로젝트 소개</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
+                <a class="fullmenu-sublink" href="#">
                   <span>인사말</span>
                 </a>
               </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>산책로소개</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>오시는길</span>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="javascript:void(0)">
-              <span>글램핑안내</span>
+            <a class="fullmenu-gnblink" href="/tour/find">
+              <span>여행</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>글램핑안내</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>템하 글램핑</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>파인 글램핑</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>뷰모노 글램핑</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>노르웨이 글램핑</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>이글루 글램핑</span>
+                <a class="fullmenu-sublink" href="/tour/find">
+                  <span>여행 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="javascript:void(0)">
-              <span>템하이벤트</span>
+            <a class="fullmenu-gnblink" href="/festival/list">
+              <span>축제</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>편의시설</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>모닥불/캠프파이어</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>액티비티</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>템하 이벤트</span>
+                <a class="fullmenu-sublink" href="/festival/list">
+                  <span>축제 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="javascript:void(0)">
-              <span>예약하기</span>
+            <a class="fullmenu-gnblink" href="/activity/list">
+              <span>체험</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>예약하기</span>
+                <a class="fullmenu-sublink" href="/activity/list">
+                  <span>체험 목록</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="javascript:void(0)">
+            <a class="fullmenu-gnblink" href="#">
               <span>커뮤니티</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
+                <a class="fullmenu-sublink" href="#">
                   <span>공지사항</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>FAQ</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>미디어</span>
-                </a>
-              </li>
-              <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="javascript:void(0)">
-                  <span>온라인 문의</span>
                 </a>
               </li>
             </ul>
@@ -323,5 +215,58 @@
     </div>
   </header>
   <!-- [E]glamping-N1 -->
+  
+<script>
+// id:[[${id}]]
+let logApp=Vue.creatApp({
+	data(){
+		return {
+			id:'',
+			pwd:''
+		}
+	},
+	methods:{
+		login(){
+			if(this.id==="") {
+				this.$refs.id.focus()
+				return
+			}
+			if(this.pwd==="") {
+				this.$refs.pwd.focus()
+				return
+			}
+			axios.post('/member/login', null, {
+				params:{
+					id:this.id,
+					pwd:this.pwd
+				}
+			}).then(res=>{
+				if(res.data==='NOID') {
+					alert("아이디가 존재하지 않습니다.")
+					this.id=''
+					this.pwd=''
+					this.$refs.id.focus()
+					
+				} else if(res.data==="NOPWD") {
+					alert("비밀번호가 존재하지 않습니다.")
+					this.pwd=''
+					this.$refs.pwd.focus()
+				} else {
+					location.href="/"
+				}
+			})
+		},
+		logout(){
+			axios.get('/member/logout').then(res=>{
+				if(res.data==='yes') {
+					location.href="/"
+				} else {
+					alert("로그아웃 실패하셨습니다.")
+				}
+			})
+		}
+	}
+}).mount('#header')
+</script>
 </body>
 </html>

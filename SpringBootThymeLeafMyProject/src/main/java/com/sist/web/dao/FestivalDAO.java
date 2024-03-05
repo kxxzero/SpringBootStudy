@@ -11,23 +11,22 @@ import com.sist.web.entity.Festival;
 
 @Repository
 public interface FestivalDAO extends JpaRepository<Festival, Integer>{
-	@Query(value="SELECT * "
-			+ "FROM festival "
-			+ "ORDER BY no ASC "
-			+ "LIMIT 0, 12", nativeQuery=true)
-	public List<Festival> festivalData();
-	
-	// 찾기
-	
+	/*
+	 * @Query(value="SELECT * " + "FROM festival " + "ORDER BY no ASC " +
+	 * "LIMIT 0, 12", nativeQuery=true) public List<Festival> festivalData();
+	 */
 	
 	// 목록 출력
 	@Query(value="SELECT * "
 			+ "FROM festival "
 			+ "ORDER BY no ASC "
-			+ "LIMIT :start, 20", nativeQuery=true)
+			+ "LIMIT :start, 12", nativeQuery=true)
 	public List<Festival> festivalListData(@Param("start") int start);
 	
 	// 총 페이지 수
-	@Query(value="SELECT COUNT(*) FROM festival", nativeQuery=true)
+	@Query(value="SELECT CEIL(COUNT(*)/12.0) FROM festival", nativeQuery=true)
 	public int festivalRowCount();
+	
+	// 찾기
+	public Festival findByNo(int no);
 }

@@ -13,7 +13,7 @@ import com.sist.web.entity.Festival;
 @Controller
 public class FestivalController {
 	@Autowired
-	private FestivalDAO fDao;
+	private FestivalDAO dao;
 	
 	@GetMapping("/festival/list")
 	public String festival_list(String page, Model model) {
@@ -21,11 +21,11 @@ public class FestivalController {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		int rowSize=20;
+		int rowSize=12;
 		int start=(rowSize*curpage)-rowSize;
-		List<Festival> list=fDao.festivalListData(start);
-		int count=fDao.festivalRowCount();
-		int totalpage=(int)(Math.ceil(count/20.0));
+		List<Festival> list=dao.festivalListData(start);
+		int count=dao.festivalRowCount();
+		int totalpage=(int)(Math.ceil(count/12.0));
 		
 		final int BLOCK=10;
 		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
@@ -43,6 +43,15 @@ public class FestivalController {
 		model.addAttribute("count", count);
 		
 		model.addAttribute("main_html", "festival/list");
+		
+		return "main";
+	}
+	
+	@GetMapping("/festival/detail")
+	public String festival_detail(int no, Model model) {
+		Festival vo=dao.findByNo(no);
+		model.addAttribute("vo", vo);
+		model.addAttribute("main_html", "festival/detail");
 		
 		return "main";
 	}

@@ -24,6 +24,7 @@ JJIM int
 @Data
 public class Festival {
 	@Id
-	private int no, hit, heart, jjim;
+	private int no;
+	private int hit, heart, jjim;
 	private String title, poster, deimage, cont, addr, rate, phone, bhour, tag;
 }
