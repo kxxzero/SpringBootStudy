@@ -5,6 +5,81 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<!-- [S]opilsol-N34 -->
+    <div class="opilsol-N34" data-bid="NmlTE871ha">
+      <div class="content-container container-md">
+        <div class="textset content-tit">
+          <p class="textset-eu">Community</p>
+          <h2 class="textset-tit">자유 게시판</h2>
+        </div>
+      </div>
+    </div>
+    <!-- [E]opilsol-N34 -->
+    <!-- [S]opilsol-N24 -->
+    <div class="opilsol-N24" data-bid="GXLte871LU">
+      <div class="content-container">
+        <div class="container-md">
+          <div class="tableset">
+            <div class="tableset-inner">
+              <a href="/board/insert" class="btn btn-sm btn-danger">새글</a>
+              <table class="tableset-table table">
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead class="thead-border-top">
+                  <tr>
+                    <th class="number" scope="col">NO</th>
+                    <th scope="col">제목</th>
+                    <th>작성자</th>
+                    <th class="last-child" scope="col">작성일</th>
+                    <th>조회수</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="number" th:text="${vo.no}">7</td>
+                    <td>
+                      <a href="javascript:void(0)" th:text="${vo.subject}"></a>
+                    </td>
+                    <td th:text="${vo.name}"></td>
+                    <td class="last-child" th:text="${vo.regdate}">2023.01.01</td>
+                    <td th:text="${vo.hit}"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <nav class="pagiset pagiset-line">
+            <!-- <div class="pagiset-ctrl">
+              <a class="pagiset-link pagiset-first" href="javascript:void(0)">
+                <span class="visually-hidden">처음</span>
+              </a>
+            </div> -->
+            <div class="pagiset-ctrl">
+              <a class="pagiset-link pagiset-prev" href="javascript:void(0)">
+                <span class="visually-hidden">이전</span>
+              </a>
+            </div>
+            <div class="pagiset-list">
+              <a class="pagiset-link active-line" href="javascript:void(0)">1</a>
+              <a class="pagiset-link" href="javascript:void(0)">2</a>
+            </div>
+            <div class="pagiset-ctrl">
+              <a class="pagiset-link pagiset-next" href="javascript:void(0)">
+                <span class="visually-hidden">다음</span>
+              </a>
+            </div>
+            <!-- <div class="pagiset-ctrl">
+              <a class="pagiset-link pagiset-last" href="javascript:void(0)">
+                <span class="visually-hidden">마지막</span>
+              </a>
+            </div> -->
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- [E]opilsol-N24 -->
 </body>
 </html>

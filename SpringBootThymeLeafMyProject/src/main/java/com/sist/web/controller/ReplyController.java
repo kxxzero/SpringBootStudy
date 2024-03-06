@@ -22,7 +22,6 @@ public class ReplyController {
 		vo.setName(name);
 		dao.save(vo);
 		ra.addAttribute("fno", vo.getFno());
-		
 		return "redirect:/food/detail";
 	}
 	

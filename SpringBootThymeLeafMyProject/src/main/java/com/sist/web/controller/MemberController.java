@@ -15,7 +15,7 @@ public class MemberController {
 	@Autowired
 	private MemberDAO dao;
 	
-	@PostMapping("/memeber/login")
+	@PostMapping("/member/login")
 	public String member_login(String id, String pwd, HttpSession session) {
 		String result="";
 		int count=dao.memberIdCount(id);

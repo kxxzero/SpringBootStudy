@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <!-- [S]glamping-N1 -->
@@ -17,16 +19,14 @@
       <div class="header-center">
         <ul class="header-member">
           <li>
-            <a href="">로그인</a>
             <ul class="inline" th:if="${session.id==null}">
-				<li>ID:<input type="text" id="id" ref="id" v-model="id" size="15"> </li>
-				<li>PWD:<input type="password" id="password" ref="pwd" v-model="pwd" size="15"> </li>
+				<li><input type="text" id="id" ref="id" v-model="id" size="15" placeholder="아이디"></li>
+				<li><input type="password" id="password" ref="pwd" v-model="pwd" size="15" placeholder="비밀번호"></li>
 				<li><input type="button" value="로그인" @click="login()">
 			</ul>
           </li>
           <li>
-          	<a href="">로그아웃</a>
-          	<ul class="inline" th:nuless="${session.id==null}">
+          	<ul class="inline" th:if="${session.id!=null}">
 				<li><span th:text="${session.name}"></span>님 로그인 되었습니다.</li>
 				<li><input type="button" value="로그아웃" @click="logout()">
 			</ul>
@@ -85,12 +85,12 @@
             </ul>
           </li>
           <li class="header-gnbitem">
-            <a class="header-gnblink" href="#">
+            <a class="header-gnblink" href="/board/list">
               <span>커뮤니티</span>
             </a>
             <ul class="header-sublist">
               <li class="header-subitem">
-                <a class="header-sublink" href="#">
+                <a class="header-sublink" href="/board/list">
                   <span>공지사항</span>
                 </a>
               </li>
@@ -105,7 +105,7 @@
             <img src="../images/icons/ico_user_white.svg" alt="유저 아이콘">
           </a>
           <button class="btn-allmenu header-utils-btn">
-            <img src="..images/icons/ico_menu_white.svg" alt="PC메뉴">
+            <img src="../images/icons/ico_menu_white.svg" alt="PC메뉴">
           </button>
           <button class="btn-momenu header-utils-btn">
             <img src="../images/icons/ico_menu_white.svg" alt="모바일메뉴">
@@ -127,16 +127,14 @@
           </h4>
           <ul class="fullmenu-member">
             <li>
-            	<a href="">로그인</a>
 	            <ul class="inline" th:if="${session.id==null}">
-					<li>ID:<input type="text" id="id" ref="id" v-model="id" size="15"> </li>
-					<li>PWD:<input type="password" id="password" ref="pwd" v-model="pwd" size="15"> </li>
+					<li><input type="text" id="id" ref="id" v-model="id" size="15" placeholder="아이디"></li>
+					<li><input type="password" id="password" ref="pwd" v-model="pwd" size="15" placeholder="비밀번호"></li>
 					<li><input type="button" value="로그인" @click="login()">
 				</ul>
           	</li>
           	<li>
-          		<a href="">로그아웃</a>
-          		<ul class="inline" th:nuless="${session.id==null}">
+          		<ul class="inline" th:if="${session.id!=null}">
 					<li><span th:text="${session.name}"></span>님 로그인 되었습니다.</li>
 					<li><input type="button" value="로그아웃" @click="logout()">
 				</ul>
@@ -196,12 +194,12 @@
             </ul>
           </li>
           <li class="fullmenu-gnbitem">
-            <a class="fullmenu-gnblink" href="#">
+            <a class="fullmenu-gnblink" href="/board/list">
               <span>커뮤니티</span>
             </a>
             <ul class="fullmenu-sublist">
               <li class="fullmenu-subitem">
-                <a class="fullmenu-sublink" href="#">
+                <a class="fullmenu-sublink" href="/board/list">
                   <span>공지사항</span>
                 </a>
               </li>
@@ -218,7 +216,7 @@
   
 <script>
 // id:[[${id}]]
-let logApp=Vue.creatApp({
+let logApp=Vue.createApp({
 	data(){
 		return {
 			id:'',
@@ -247,7 +245,7 @@ let logApp=Vue.creatApp({
 					this.pwd=''
 					this.$refs.id.focus()
 					
-				} else if(res.data==="NOPWD") {
+				} else if(res.data==='NOPWD') {
 					alert("비밀번호가 존재하지 않습니다.")
 					this.pwd=''
 					this.$refs.pwd.focus()
