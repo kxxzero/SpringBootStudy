@@ -15,7 +15,7 @@ public class Reply {
 	@Id
 	private int no;
 	@Column(insertable=true, updatable=false)
-	private int fno;
+	private int tno;
 	@Column(insertable=true, updatable=false)
 	private String id;
 	@Column(insertable=true, updatable=false)

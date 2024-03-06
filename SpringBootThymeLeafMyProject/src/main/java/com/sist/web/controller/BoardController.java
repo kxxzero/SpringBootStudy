@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sist.web.dao.BoardDAO;
 import com.sist.web.entity.Board;
-import com.sist.web.entity.BoardVO;
 
 @Controller
 public class BoardController {
@@ -25,7 +24,7 @@ public class BoardController {
 		int curpage=Integer.parseInt(page);
 		int rowSize=10;
 		int start=(rowSize*curpage)-rowSize;
-		List<BoardVO> list=dao.boardListData(start);
+		List<Board> list=dao.boardListData(start);
 		int count=(int)dao.count();
 		int totalpage=(int)(Math.ceil(count/10.0));
 		
