@@ -25,6 +25,7 @@ JJIM int
 public class Tour {
 	@Id
 	private int no;
+	
 	private String title, poster, cont, addr, phone, bhour, rate, deimage, tag;
 	private int hit, heart, jjim;
 }

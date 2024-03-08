@@ -17,17 +17,20 @@ public class BoardController {
 	private BoardDAO dao;
 	
 	@GetMapping("/board/list")
-	public String board_list(String page, Model model) {		
+	public String boardList(String page, Model model) {
+		Board vo=new Board(); 
+		model.addAttribute("vo", vo);
+		
 		if(page==null) {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
 		int rowSize=10;
-		int start=(rowSize*curpage)-rowSize;
+		int start=(rowSize*curpage)-rowSize; //Limit => 0
 		List<Board> list=dao.boardListData(start);
 		int count=(int)dao.count();
 		int totalpage=(int)(Math.ceil(count/10.0));
-		
+	   
 		final int BLOCK=10;
 		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
@@ -35,28 +38,29 @@ public class BoardController {
 		if(endPage>totalpage) {
 			endPage=totalpage;
 		}
+		
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("totalpage", totalpage);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
+		model.addAttribute("count", count);
 		model.addAttribute("list", list);
-			
 		model.addAttribute("main_html", "board/list");
 		return "main";
 	}
 	
 	// 작성 => 모양 폼만 생성
 	@GetMapping("/board/insert")
-	public String board_insert(Model model) {
+	public String boardInsert(Model model) {
 		model.addAttribute("main_html", "board/insert");
 		return "main";
 	}
 	
 	// 실제 작성 => redirect
 	@PostMapping("/board/insert_ok")
-	public String board_insert_ok(Board vo) {
+	public String boardInsertOk(Board vo) {
 		dao.save(vo);
-		return"redirect:/board/list";
+		return "redirect:/board/list";
 	}
 	
 	// 상세보기

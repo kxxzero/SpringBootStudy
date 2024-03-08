@@ -2,13 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>축제 목록</title>
+<title>여행 목록</title>
 </head>
 <body>
 <div class="glamping-N41" data-bid="pTltC8l3P7">
   <div class="contents-inner">
     <div class="contents-container container-md">
       <div class="contents-top">
+      	<div class="textset content-tit">
+          <p class="textset-eu">Tour</p>
+          <h2 class="textset-tit">여행</h2>
+        </div>
         <!-- <p class="contents-text">총 <strong th:text="${count}"></strong>개의 게시물이 있습니다.</p> -->
         <div class="inputset inputset-border-bottom">
 	        <form method="post" action="/tour/find">
@@ -28,7 +32,7 @@
           </div>
         </a>
       </div>
-      <nav class="pagiset pagiset-circ">
+      <nav class="pagiset pagiset-line">
 <!--         <div class="pagiset-ctrl">
           <a class="pagiset-link pagiset-first" href="javascript:void(0)">
             <span class="visually-hidden">처음</span>
@@ -40,7 +44,7 @@
           </a>
         </div>
         <div class="pagiset-list">
-          <a th:each="i:${#numbers.sequence(startPage, endPage)}" th:href="@{/tour/list(page=${i}, title=${title})}" th:text="${i}" th:class="${curpage==i?'pagiset-link active-fill':'pagiset-link'}"></a>
+          <a th:each="i:${#numbers.sequence(startPage, endPage)}" th:href="@{/tour/list(page=${i}, title=${title})}" th:class="${curpage==i?'pagiset-link active-fill':'pagiset-link'}" th:text="${i}"></a>
         </div>
         <div th:if="${endPage<totalpage}" class="pagiset-ctrl">
           <a th:href="@{/tour/list(page=${endPage+1}, title=${title})}" class="pagiset-link pagiset-next">

@@ -10,7 +10,10 @@ import com.sist.web.entity.Reply;
 
 public interface ReplyDAO extends JpaRepository<Reply, Integer>{
 	// 데이터 읽기
-	@Query(value="SELET * FROM reply WHERE fno=:fno ORDER BY fno DESC", nativeQuery=true)
+	@Query(value="SELET * "
+			+ "FROM reply "
+			+ "WHERE fno=:fno "
+			+ "ORDER BY fno DESC", nativeQuery=true)
 	public List<Reply> replyListData(@Param("fno") int fno);
 	
 	public Reply findByNo(int no);

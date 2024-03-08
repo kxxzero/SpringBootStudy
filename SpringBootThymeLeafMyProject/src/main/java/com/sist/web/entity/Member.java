@@ -15,6 +15,7 @@ public class Member {
 	@Id
 	@Column(name="id", unique=true)
 	private String id;
+	
 	private String pwd;
 	private String name;
 }

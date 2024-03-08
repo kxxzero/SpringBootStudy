@@ -25,6 +25,7 @@ JJIM int
 public class Festival {
 	@Id
 	private int no;
+	
 	private int hit, heart, jjim;
 	private String title, poster, deimage, cont, addr, rate, phone, bhour, tag;
 }

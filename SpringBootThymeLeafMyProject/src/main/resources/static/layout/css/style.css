@@ -78,7 +78,7 @@
 }
 
 /* glamping-N41 [pTltC8l3P7] */
-.glamping-N41 .contents-inner { padding: 8rem 2.4rem; }
+.glamping-N41 .contents-inner { padding: 10rem 2.4rem; }
 .glamping-N41 .contents-top { display: flex; align-items: center; justify-content: space-between; }
 .glamping-N41 .contents-text { width: 50%; font-size: var(--fs-p2); line-height: var(--lh-p2); color: var(--text-color4); }
 .glamping-N41 .contents-text strong { color: var(--text-color1); }
@@ -366,4 +366,11 @@
  .glamping-N30 .contents-inner { padding: 5rem 2.4rem; }
  .glamping-N30 .cardset-figure { height: 24rem; }
  .glamping-N30 .cardset .cardset-body { padding: 2rem 0 0 0; }
+}
+
+/* opilsol-N24 */
+.opilsol-N24 .contents-inner { padding: 10rem 2.4rem; }
+.opilsol-N24 .tableset{margin-top: 2rem}
+@media (max-width: 992px) {
+ .opilsol-N24 .contents-inner { padding: 5rem 2.4rem; }
 }

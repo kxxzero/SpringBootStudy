@@ -58,7 +58,7 @@ public class TourController {
 	}
 	
 	@RequestMapping("/tour/find")
-	public String tour_list(String page, String title, Model model) {
+	public String tour_find(String page, String title, Model model) {
 		if(title==null) {
 			title="";
 		}

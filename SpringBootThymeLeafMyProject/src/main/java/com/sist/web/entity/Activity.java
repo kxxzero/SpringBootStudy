@@ -26,6 +26,7 @@ JJIM int
 public class Activity {
 	@Id
 	private int no;
+	
 	private String title, poster, cont, addr, phone, restday, bhour, tag, deimage, rate;
 	private int hit, heart, jjim;
 }

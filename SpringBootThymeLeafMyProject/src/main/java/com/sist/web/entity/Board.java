@@ -8,8 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.Setter;
 
 /*
@@ -28,13 +28,17 @@ hit int
 @NoArgsConstructor
 @AllArgsConstructor
 public class Board {
-	@Id // primary key
+	@Id
 	private int no;
+	
 	private String name, subject, content;
+	
 	@Column(insertable=true, updatable=false)
 	private String pwd;
+	
 	@Column(insertable=true, updatable=false)
 	private int hit;
+	
 	@Column(insertable=true, updatable=false)
 	private String regdate;
 	
