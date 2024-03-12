@@ -25,17 +25,6 @@ public class RecipeRestController {
 	@Autowired
 	private RecipedetailDAO rDao;
 	
-//	@GetMapping("/recipe/list_react")
-//	public List<Recipe> recipeListData(int page) {
-//		
-//		int rowSize=12;
-//		int start=(rowSize*page)-rowSize;
-//		
-//		List<Recipe> list=dao.recipeListData(page);
-//		
-//		return list;
-//	}
-	
 	@GetMapping("/recipe/list_react")
 	public Map recipeListData(int page) {
 		int rowSize=12;
@@ -76,7 +65,7 @@ public class RecipeRestController {
 			make.add(st.nextToken());
 			image.add(st.nextToken());
 		}
-		
+
 		map.put("recipe", r);
 		map.put("make", make);
 		map.put("image", image);

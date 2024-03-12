@@ -24,7 +24,7 @@ JJIMCOUNT int
 LIKECOUNT int
  */
 
-@Entity(name="food_house")
+@Entity(name="food")
 @Data
 @NoArgsConstructor
 public class Food {
