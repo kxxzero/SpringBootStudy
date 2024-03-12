@@ -18,10 +18,8 @@ public interface FoodDAO extends JpaRepository<Food, Integer> {
 			+ "WHERE address LIKE CONCAT('%',:address,'%')", nativeQuery=true)
 	public int foodFindTotalPage(@Param("address") String address);
 	
-	
 	// 찾기 => 상세보기
 	public Food findByFno(int fno);
-	
 	
 	@Query(value="SELECT * FROM food "
 			+ "ORDER BY fno ASC LIMIT :start, 12", nativeQuery=true)
