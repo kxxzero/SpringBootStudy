@@ -7,8 +7,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sist.web.dao.ReplyDAO;
 import com.sist.web.entity.Reply;
+import com.sist.web.entity.FoodListVO;
 
 import jakarta.servlet.http.HttpSession;
+
+import lombok.Getter;
 
 public class ReplyController {
 	@Autowired
