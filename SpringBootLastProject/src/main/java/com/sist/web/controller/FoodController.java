@@ -18,7 +18,7 @@ public class FoodController {
 	@Autowired
 	private FoodService fService;
 	
-	@GetMapping("/food_list_react")
+	@GetMapping("/food/list_react")
 	public Map food_list(int page) {
 		int rowSize=12;
 		int start=(rowSize*page)-rowSize;
@@ -45,5 +45,14 @@ public class FoodController {
 		
 		// {find_list:[], totalpage:..}
 		return map;
+	}
+	
+	@GetMapping("/food/detail_react")
+	public Food food_detail(int fno) {
+		Food food=fService.findByFno(fno);
+		food.setHit(food.getHit()+1); // 조회수 증가
+		fService.save(food);
+		food=fService.findByFno(fno);
+		return food;
 	}
 }

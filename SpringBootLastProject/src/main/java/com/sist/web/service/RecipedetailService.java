@@ -1,5 +1,12 @@
 package com.sist.web.service;
 
-public interface RecipedetailService {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
+import com.sist.web.entity.Recipedetail;
+
+@Service
+public interface RecipedetailService extends JpaRepository<Recipedetail, Integer>{
+
+	public Recipedetail findByNo(int no);
 }

@@ -1,5 +1,6 @@
 package com.sist.web.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,50 @@ public class Food {
 	// Id : 자동 증가 번호 => insert, update, delete 
 	@Id
 	private int fno;
-	private String poster, name, type, address, phone, theme, price, time, seat, content, link;
+	
+	@Column(insertable=true, updatable=false)
+	private int jjimcount;
+	
+	@Column(insertable=true, updatable=false)
+	private int likecount;
+	
+	// 조회수
+	@Column(insertable=true, updatable=true)
+	private int hit;
+	
+	@Column(insertable=true, updatable=false)
+	private String poster;
+	
+	@Column(insertable=true, updatable=false)
+	private String name;
+	
+	@Column(insertable=true, updatable=false)
+	private String type;
+	
+	@Column(insertable=true, updatable=false)
+	private String address;
+	
+	@Column(insertable=true, updatable=false)
+	private String phone;
+	
+	@Column(insertable=true, updatable=false)
+	private String theme;
+	
+	@Column(insertable=true, updatable=false)
+	private String price;
+	
+	@Column(insertable=true, updatable=false)
+	private String time;
+	
+	@Column(insertable=true, updatable=false)
+	private String seat;
+	
+	@Column(insertable=true, updatable=false)
+	private String content;
+	
+	@Column(insertable=true, updatable=false)
+	private String link;
+	
+	@Column(insertable=true, updatable=false)
 	private double score;
-	private int hit, jjimcount, likecount;
 }
